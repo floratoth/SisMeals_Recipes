@@ -1,8 +1,8 @@
 export class Recipe {
+  id?: string = '';
   name: string = '';
-  id: number = 0;
   time: number = 0;
-  difficulty: 'easy' | 'medium' | 'hard' = 'medium';
+  category: string = '';
   imgUrl?: string = 'src/assets/home_images/sisters.jpg';
   ingredients: Array<string> = [];
   description: string = '';

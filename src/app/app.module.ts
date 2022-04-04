@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +10,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './common/footer/footer.component';
 import { RecipesComponent } from './pages/recipes/recipes.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { RecipeListComponent } from './common/recipe-list/recipe-list.component';
+import { RecipeCardComponent } from './common/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -16,13 +20,16 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    RecipesComponent
+    RecipesComponent,
+    RecipeListComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
   providers: [],
   bootstrap: [AppComponent]

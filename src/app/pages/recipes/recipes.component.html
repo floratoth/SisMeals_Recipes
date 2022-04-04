@@ -1,1 +1,61 @@
-<p>recipes works!</p>
+<div class="container mt-3 mb-5">
+  <div class="recipe_list--container">
+    <div *ngFor="let recipe of recipeList$ | async" class="recipe_list--item">
+      <div>
+        <div class="card">
+          <div class="card_img--container">
+            <img src="../../../assets/home_carousel/3.jpg" alt="" class="card_img" />
+          </div>
+          <div class="card_info--container p-2">
+            <div class="card_info--top">
+              <div>
+                <i class="fa fa-clock-o me-1"></i>
+                <p class="d-inline-block">{{ recipe.time }} MIN</p>
+              </div>
+              <div>
+                <i class="fa fa-tag me-1"></i>
+                <p class="d-inline-block">{{ recipe.category }}</p>
+              </div>
+            </div>
+            <div class="card_info--title">
+              <h5 class="w-100 mb-0">{{ recipe.name }}</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="row">
+    <div class="col-10 offset-1">
+      <div class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Category</th>
+            <th>ImgUrl</th>
+            <th>Ingredients</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let recipe of recipeList$ | async">
+            <td>{{ recipe.name }}</td>
+            <td>{{ recipe.time }}</td>
+            <td>{{ recipe.category }}</td>
+            <td>{{ recipe.imgUrl }}</td>
+            <td>{{ recipe.ingredients }}</td>
+            <td>{{ recipe.description }}</td>
+            <td>
+              <div class="btn-group">
+                <button class="btn btn-danger">
+                  Delete
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div> -->
+</div>

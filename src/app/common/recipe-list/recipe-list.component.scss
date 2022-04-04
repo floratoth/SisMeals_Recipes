@@ -1,0 +1,10 @@
+.recipe_list--container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  row-gap: 40px;
+}
+
+.recipe_list--item {
+  justify-self: center;
+  align-self: center;
+}
