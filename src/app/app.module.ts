@@ -15,6 +15,7 @@ import { RecipeListComponent } from './common/recipe-list/recipe-list.component'
 import { RecipeCardComponent } from './common/recipe-card/recipe-card.component';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     RecipesComponent,
     RecipeListComponent,
     RecipeCardComponent,
-    FilterPipe
+    FilterPipe,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

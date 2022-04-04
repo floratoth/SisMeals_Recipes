@@ -14,6 +14,7 @@ export class RecipesComponent implements OnInit {
   keys: string[] = ["LUNCH", "SOUP", "VEGETARIAN", "DESSERT", "DRINKS", "SALAD", "BREAKFAST"];
 
   catFilter: string = '';
+  phrase: string = '';
 
   recipeCollection = this.firestore.collection<Recipe>('recipes');
 
