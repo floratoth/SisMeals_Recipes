@@ -13,6 +13,8 @@ import { RecipesComponent } from './pages/recipes/recipes.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { RecipeListComponent } from './common/recipe-list/recipe-list.component';
 import { RecipeCardComponent } from './common/recipe-card/recipe-card.component';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,11 +24,13 @@ import { RecipeCardComponent } from './common/recipe-card/recipe-card.component'
     FooterComponent,
     RecipesComponent,
     RecipeListComponent,
-    RecipeCardComponent
+    RecipeCardComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     NgbModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
