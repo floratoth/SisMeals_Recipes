@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute } from '@angular/router';
-import { first, take } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
 import { Recipe } from 'src/app/model/recipe';
 
 @Component({
@@ -11,27 +11,40 @@ import { Recipe } from 'src/app/model/recipe';
 })
 export class RecipeDetailsComponent implements OnInit {
   recipe?: Recipe;
+  recipeId: string;
 
   constructor(
     private firestore: AngularFirestore,
-    private aRoute: ActivatedRoute
+    private aRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.getRecipe();
+    this.aRoute.params.subscribe((params) => {
+      this.recipeId = params['id'];
+      this.getRecipe();
+    });
   }
 
   getRecipe() {
-    this.aRoute.params.subscribe((params) => {
-      const recipeId = params['id'];
-      console.log(recipeId);
+    if (!this.recipeId) {
+      return;
+    }
 
-      this.firestore
-        .collection<Recipe>('recipes')
-        .doc(recipeId)
-        .get()
-        .pipe(first())
-        .subscribe((r) => (this.recipe = r.data()));
-    });
+    this.firestore
+      .collection<Recipe>('recipes')
+      .doc(this.recipeId)
+      .get()
+      .pipe(first())
+      .subscribe((r) => (this.recipe = r.data()));
+  }
+
+  deleteRecipe() {
+    if (!this.recipeId) {
+      return;
+    }
+
+    this.firestore.collection<Recipe>('recipes').doc(this.recipeId).delete();
+    this.router.navigate(['/', 'recipes']);
   }
 }
