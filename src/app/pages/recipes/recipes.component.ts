@@ -1,6 +1,7 @@
 import { Recipe } from './../../model/recipe';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore'; 
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-recipes',
@@ -18,7 +19,7 @@ export class RecipesComponent implements OnInit {
 
   recipeCollection = this.firestore.collection<Recipe>('recipes');
 
-  recipeList$: any = this.recipeCollection.valueChanges({idField: 'id'});
+  recipeList$: Observable<Recipe[]> = this.recipeCollection.valueChanges({idField: 'id'});
 
   constructor(
     private firestore: AngularFirestore,

@@ -1,5 +1,5 @@
 <div class="container mt-5 mb-4">
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-4 form-group">
       <label for="tableSearch" class="mb-1">Search by Category</label>
       <select
@@ -7,14 +7,14 @@
         id="tableSearch"
         class="form-control form-select"
       >
-        <option value="">All column</option>
+        <option value="">All Categorys</option>
         <option *ngFor="let key of keys" [value]="key">
           {{ key }}
         </option>
       </select>
     </div>
 
-    <div class="col-8 mb-5 input_container">
+    <div class="col-8 input_container">
       <label for="">Search by Food Name</label>
       <input
         [(ngModel)]="phrase"
@@ -23,6 +23,17 @@
         placeholder="What kind of food are you looking for?"
       />
     </div>
+  </div>
+
+  <div class="row mb-5 button_container">
+    <button
+      [routerLink]="['/edit-recipe', 0]"
+      type="button"
+      class="btn btn-outline-secondary"
+    >
+      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      Add new recipe
+    </button>
   </div>
 
   <div class="recipe_list--container">
@@ -39,7 +50,7 @@
         <div class="card">
           <div class="card_img--container">
             <img
-              src="../../../assets/home_carousel/3.jpg"
+              [src]="recipe.imgUrl"
               alt=""
               class="card_img"
             />

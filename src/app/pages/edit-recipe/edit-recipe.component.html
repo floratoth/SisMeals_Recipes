@@ -1,0 +1,127 @@
+<div class="row">
+  <div class="col-md-6 offset-3 col-sm-8 mt-5 mb-5">
+    <div class="card">
+      <div class="card-header">
+        <h3>Add new recipe</h3>
+      </div>
+      <div class="card-body">
+        <form #recipeForm="ngForm">
+          <div class="form-group mb-3">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              [ngModel]="recipe?.name"
+              (ngModelChange)="recipe.name = $event"
+              name="name"
+              id="name"
+              #name="ngModel"
+              required
+              class="form-control"
+            />
+            <div
+              *ngIf="name.invalid && name.touched"
+              class="alert alert-danger mt-2"
+            >
+              <div *ngIf="name.errors?.['pattern']">
+                Please enter a valid recipe name
+              </div>
+              <div *ngIf="name.errors?.['required']">
+                Recipe name is required
+              </div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="time">Time (in minutes):</label>
+            <input
+              type="number"
+              [ngModel]="recipe?.time"
+              (ngModelChange)="recipe.time = $event"
+              name="time"
+              id="time"
+              #time="ngModel"
+              required
+              class="form-control"
+            />
+            <div
+              *ngIf="time.invalid && time.touched"
+              class="alert alert-danger mt-2"
+            >
+              <div *ngIf="time.errors?.['pattern']">
+                Please enter a valid time
+              </div>
+              <div *ngIf="time.errors?.['required']">Time is required</div>
+            </div>
+          </div>
+          <div class="input-group mb-4">
+            <select
+              class="form-select"
+              id="inputGroupSelect02"
+              [(ngModel)]="selectedOption"
+              required
+              name="categorySelect"
+            >
+              <option required selected>Choose...</option>
+              <option *ngFor="let key of keys" [value]="key">
+                {{ key }}
+              </option>
+            </select>
+            <label class="input-group-text" for="categorySelect"
+              >Category</label
+            >
+          </div>
+          <div class="input-group mb-4">
+            <input
+              type="file"
+              class="form-control"
+              (change)="upload($event)"
+              id="file"
+              accept=".png,.jpg"
+            />
+
+            <!-- <button (click)="uploadImage()">
+              Upload image
+            </button> -->
+          </div>
+
+          <div class="input-group mb-5">
+            <div class="input-group-prepend">
+              <span class="input-group-text">Description</span>
+            </div>
+            <textarea
+              type="text"
+              aria-label="Description"
+              [ngModel]="recipe?.description"
+              (ngModelChange)="recipe.description = $event"
+              name="description"
+              id="description"
+              #description="ngModel"
+              required
+              class="form-control"
+            ></textarea>
+            <div
+              *ngIf="description.invalid && description.touched"
+              class="alert alert-danger mt-2"
+            >
+              <div *ngIf="description.errors?.['pattern']">
+                Please enter a description
+              </div>
+              <div *ngIf="description.errors?.['required']">
+                Description is required
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <button
+              (click)="onCreate()"
+              type="button"
+              class="btn btn-secondary btn-block w-100"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
