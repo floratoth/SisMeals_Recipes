@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { EditRecipeComponent } from './pages/edit-recipe/edit-recipe.component';
+import { RecipeDetailsComponent } from './pages/recipe-details/recipe-details.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { EditRecipeComponent } from './pages/edit-recipe/edit-recipe.component';
     RecipeCardComponent,
     FilterPipe,
     SearchPipe,
-    EditRecipeComponent
+    EditRecipeComponent,
+    RecipeDetailsComponent
   ],
   imports: [
     BrowserModule,
