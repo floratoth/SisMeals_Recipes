@@ -6,7 +6,7 @@
     <div class="recipe-name mt-4">
       <h3>{{ recipe?.name }}</h3>
     </div>
-    <div class="recipe-description mt-3">
+    <div class="recipe-description overflow-hidden mt-3">
       <strong>Description: </strong>{{ recipe?.description }}
     </div>
     <div class="recipe-time mt-3">
@@ -15,5 +15,13 @@
     <div class="recipe-category mt-3 mb-4">
       <strong>Category: </strong>{{ recipe?.category?.toLowerCase() }}
     </div>
+
+    <button
+      type="button"
+      class="btn alert-danger mb-4"
+      (click)="deleteRecipe()"
+    >
+      Delete
+    </button>
   </div>
 </div>
