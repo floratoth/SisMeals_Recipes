@@ -1,0 +1,15 @@
+.recipe-img-container {
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+}
+
+.recipe-img {
+  object-fit: cover;
+  width: 100%;
+}
+
+.recipe-img-container,
+.recipe-img {
+  max-height: 500px;
+}

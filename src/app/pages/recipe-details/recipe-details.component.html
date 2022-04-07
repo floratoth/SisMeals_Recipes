@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row w-50 m-auto">
+    <div class="recipe-img-container">
+      <img [src]="recipe?.imgUrl" class="recipe-img" alt="Recipe image" />
+    </div>
+    <div class="recipe-name mt-4">
+      <h3>{{ recipe?.name }}</h3>
+    </div>
+    <div class="recipe-description mt-3">
+      <strong>Description: </strong>{{ recipe?.description }}
+    </div>
+    <div class="recipe-time mt-3">
+      <strong>Duration: </strong>{{ recipe?.time }} <span> mins</span>
+    </div>
+    <div class="recipe-category mt-3 mb-4">
+      <strong>Category: </strong>{{ recipe?.category?.toLowerCase() }}
+    </div>
+  </div>
+</div>

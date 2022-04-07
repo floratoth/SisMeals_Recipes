@@ -47,13 +47,9 @@
       class="recipe_list--item"
     >
       <div>
-        <div class="card">
+        <div class="card" [routerLink]="['/recipe-details', recipe.id]">
           <div class="card_img--container">
-            <img
-              [src]="recipe.imgUrl"
-              alt=""
-              class="card_img"
-            />
+            <img [src]="recipe.imgUrl" alt="" class="card_img" />
           </div>
           <div class="card_info--container p-2">
             <div class="card_info--top">
