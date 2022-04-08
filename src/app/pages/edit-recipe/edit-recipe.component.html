@@ -117,6 +117,7 @@
           <div>
             <button
               (click)="onCreate()"
+              [disabled]="recipeForm.invalid"
               type="button"
               class="btn btn-secondary btn-block w-100"
             >
