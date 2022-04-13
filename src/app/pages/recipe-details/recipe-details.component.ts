@@ -12,6 +12,7 @@ import { Recipe } from 'src/app/model/recipe';
 export class RecipeDetailsComponent implements OnInit {
   recipe?: Recipe;
   recipeId: string;
+  //ingredients?: Array<{value: string}> = [];
 
   constructor(
     private firestore: AngularFirestore,

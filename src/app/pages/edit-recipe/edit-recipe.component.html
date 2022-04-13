@@ -71,6 +71,50 @@
               >Category</label
             >
           </div>
+          <div class="mb-4">
+            <label for="" class="w-100 mb-2">Ingredients:</label>
+            <div class="w-100 input-group">
+              <div
+                *ngFor="let ingredient of ingredients; let index = index"
+                class="w-100 mb-2 input-group"
+              >
+                <input
+                  type="text"
+                  [(ngModel)]="ingredient.value"
+                  #name="ngModel"
+                  name="value{{ index }}"
+                  class="form-control"
+                />
+                <button
+                  type="button"
+                  class="btn btn-outline-danger ingredients_button"
+                  id="button-addon2"
+                  (click)="removeIngredient(index)"
+                >
+                  <i
+                    class="fa fa-minus-circle fa-lg ingredients_icons"
+                    aria-hidden="true"
+                  ></i>
+                </button>
+              </div>
+            </div>
+            <div class="w-100 d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-outline-success ingredients_button mb-2"
+                (click)="addIngredient()"
+              >
+                <i
+                  class="fa fa-plus-circle fa-lg ingredients_icons"
+                  aria-hidden="true"
+                ></i>
+              </button>
+            </div>
+            <!--             <h2>Result</h2>
+            <div *ngFor="let ingredient of ingredients">
+              {{ ingredient.value }}
+            </div> -->
+          </div>
           <div class="input-group mb-4">
             <input
               type="file"
@@ -80,10 +124,6 @@
               accept=".png,.jpg"
               name="fileInput"
             />
-
-            <!-- <button (click)="uploadImage()">
-              Upload image
-            </button> -->
           </div>
 
           <div class="input-group mb-5">
